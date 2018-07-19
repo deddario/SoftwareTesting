@@ -1,0 +1,10 @@
+version: 1.0.{build}
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+build_script:
+- choco install "msbuild-sonarqube-runner" -y
+- MSBuild.SonarQube.Runner.exe begin /k:"ZbW.Testing.FirstUnitTest" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=f18fecd8591da0f4552bf1d7559271a490cf251f"
+- msbuild "ZbW.Testing.FirstUnitTest.sln"
+- MSBuild.SonarQube.Runner.exe end /d:"sonar.login=f18fecd8591da0f4552bf1d7559271a490cf251f"
