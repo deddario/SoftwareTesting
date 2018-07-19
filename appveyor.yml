@@ -7,4 +7,4 @@ build_script:
 - choco install "msbuild-sonarqube-runner" -y
 - SonarScanner.MSBuild.exe begin /k:"ZbW.Testing.FirstUnitTest" /d:"sonar.organisation=michikeiser-github" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=9942c0f980a56f2fcc798e7ea6f5c4479861d595"
 - msbuild "ZbW.Testing.FirstUnitTest.sln"
-- SonarScanner.MSBuild.exe end /d:"sonar.login=9942c0f980a56f2fcc798e7ea6f5c4479861d595"
+- SonarScanner.MSBuild.exe end /d:"sonar.organisation=michikeiser-github" /d:"sonar.login=9942c0f980a56f2fcc798e7ea6f5c4479861d595"
